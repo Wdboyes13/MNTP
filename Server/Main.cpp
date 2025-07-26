@@ -72,11 +72,12 @@ int main(){
                 std::string message = "CNTD\r\n";
                 boost::asio::write(socket, boost::asio::buffer(message));
                 auto buf2 = RecvBytes(&socket);
-                auto end = std::remove_if(buf2.begin(), buf2.end(), [](char c) {
-                    return c == '\r' || c == '\n' || c == '\0';
-                });
-                const std::string clean_str(buf2.begin(), end);
-                std::string TimePack = MNTP::ConstructMetricTimePacket(&clean_str);
+                std::string str = buf2.data();
+                size_t pos = str.find("\r\n");
+                if (pos != std::string::npos) {
+                    str.erase(pos);  // remove from CRLF to end
+                }
+                std::string TimePack = MNTP::ConstructMetricTimePacket(&str);
                 if (TimePack == "ERR"){
                     std::cerr << "Failed to get Time Zone Packet" << std::endl;
                     boost::asio::write(socket, boost::asio::buffer("DD\r\n"));
