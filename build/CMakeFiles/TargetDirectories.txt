@@ -1,0 +1,5 @@
+/Users/william/coding/MNTP/build/CMakeFiles/MNTP-Server.dir
+/Users/william/coding/MNTP/build/CMakeFiles/LIBTZ.dir
+/Users/william/coding/MNTP/build/CMakeFiles/MNTP-Client.dir
+/Users/william/coding/MNTP/build/CMakeFiles/edit_cache.dir
+/Users/william/coding/MNTP/build/CMakeFiles/rebuild_cache.dir
