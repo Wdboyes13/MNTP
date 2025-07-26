@@ -1,21 +1,21 @@
 Client Request
 
-CNT\0\0
-<TZCode>\0\0
-R1\0\0
-\0\0
+CNT\r\n
+<TZCode>\r\n
+R1\r\n
+\r\n
 
 Server Response Success
 
-CNTD\0\0
-RECV-20\0\0
-<MHrs>-<MMins>-<MSecs>\0\0
-\0\0
+CNTD\r\n
+RECV-20\r\n
+<MHrs>-<MMins>-<MSecs>\r\n
+\r\n
 
 Error Handling
 If the server has an error 
 It will send the packet
-DD\0\0
+DD\r\n
 
 TZCodes
 Same as tzdata
@@ -23,9 +23,9 @@ Same as tzdata
 
 Full Session Example
 
->CNT\0\0
-<CNTD\0\0
->America/Vancouver\0\0
-<RECV-20\0\0
->R1\0\0\0\0
-<5-50-75\0\0
+>CNT\r\n
+<CNTD\r\n
+>America/Vancouver\r\n
+<RECV-20\r\n
+>R1\r\n\r\n
+<5-50-75\r\n
