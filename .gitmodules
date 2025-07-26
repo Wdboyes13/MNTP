@@ -1,3 +1,6 @@
 [submodule "date"]
 	path = date
 	url = https://github.com/HowardHinnant/date
+[submodule "tzdb-2025b"]
+	path = tzdb-2025b
+	url = https://github.com/eggert/tz

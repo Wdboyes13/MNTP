@@ -7,5 +7,5 @@ wclang++ -std=c++20 -nostdlib++ -nostdinc++ -O2 \
         -I/opt/will/include/c++/v1 \
         Main.cpp \
         -o MNTP-Client \
-        -lc++ -lc++abi -lboost_system -lcurl \
+        -lc++ -lc++abi -lboost_system \
         -Wl,-rpath,/opt/will/lib/libcpp
