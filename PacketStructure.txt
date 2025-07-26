@@ -1,0 +1,31 @@
+Client Request
+
+CNT\0\0
+<TZCode>\0\0
+R1\0\0
+\0\0
+
+Server Response Success
+
+CNTD\0\0
+RECV-20\0\0
+<MHrs>-<MMins>-<MSecs>\0\0
+\0\0
+
+Error Handling
+If the server has an error 
+It will send the packet
+DD\0\0
+
+TZCodes
+Same as tzdata
+
+
+Full Session Example
+
+>CNT\0\0
+<CNTD\0\0
+>America/Vancouver\0\0
+<RECV-20\0\0
+>R1\0\0\0\0
+<5-50-75\0\0
