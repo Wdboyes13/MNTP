@@ -32,11 +32,19 @@ int main(){
     std::cout << "Please enter the IP of the MNTP Server: ";
     std::string ServerIP;
     std::cin >> ServerIP;
+    std::cout << "Is the server on the default port [Y/N]: ";
+    std::string IsOnPort;
+    std::cin >> IsOnPort;
+    std::string port = "6980";
+    if (IsOnPort == "N" || IsOnPort == "n"){
+        std::cout << "Please Enter the Port to use: ";
+        std::cin >> port;
+    }
 
     try {
         boost::asio::io_context io_ctx;
         tcp::resolver resolver(io_ctx);
-        tcp::resolver::results_type endpoints = resolver.resolve(ServerIP, "6980");
+        tcp::resolver::results_type endpoints = resolver.resolve(ServerIP, port);
         tcp::socket socket(io_ctx);
         boost::asio::connect(socket, endpoints);
         SEND("CNT\r\n");
