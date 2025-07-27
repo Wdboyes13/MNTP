@@ -8,6 +8,7 @@ project (
 set(CMAKE_CXX_STANDARD 20)
 find_package(Boost REQUIRED COMPONENTS system)
 find_package(CURL REQUIRED)
+
 add_executable(
     MNTP-Server
     Server/Main.cpp
@@ -29,9 +30,13 @@ if (APPLE)
     target_link_libraries(MNTP-Server PRIVATE intl tz)
 endif()
 
+find_package(Qt5 REQUIRED COMPONENTS Widgets Core)
+
 add_executable(
     MNTP-Client
-    Client/Main.cpp
+    Client/ClientNew/GetTime.cpp
+    Client/ClientNew/Main.cpp
 )
 
+target_link_libraries(MNTP-Client PRIVATE Qt5::Widgets Qt5::Core)
 target_link_libraries(MNTP-Client PRIVATE Boost::system)
